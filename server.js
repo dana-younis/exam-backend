@@ -53,7 +53,7 @@ function getFavoriteFunction(req,res){
 }
 function deleteFunction(req,res){
     const id=req.params.id;
-    myDigimonsModel.remove({id:id},(error,datal)=>{
+    myDigimonsModel.remove({_id:id},(error,datal)=>{
         myDigimonsModel.find({},(error,data)=>{
             res.send(data)
         })
@@ -63,7 +63,7 @@ function deleteFunction(req,res){
 function updateFunction(req,res){
     const {newName,newLevel,newImg}=req.body;
     const id=req.params.id;
-    myDigimonsModel.findOne({id:id},(error,data1)=>{
+    myDigimonsModel.findOne({_id:id},(error,data1)=>{
         data1.name=newName;
         data1.level=newLevel;
         data1.img=newImg;
